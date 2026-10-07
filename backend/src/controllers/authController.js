@@ -42,7 +42,7 @@ const registerUser = async (req,res) =>{
             }
         });
 
-
+        
     }catch(error){
         console.error("Registration error:", error);
 
@@ -63,6 +63,7 @@ const loginUser = async(req,res)=>{
                 message : "Email and password are required"
             });
         }
+
         const user = await User.findOne( { email });
 
         if(!user){
@@ -100,6 +101,7 @@ const loginUser = async(req,res)=>{
                 role: user.role
             }
         });
+
     }catch(error){
         console.error("Login error:", error);
 

@@ -1,26 +1,18 @@
-import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
-    const [message, setMessage] = useState("Connecting to backend...");
-
-    useEffect(() => {
-        fetch("http://localhost:1234/api/health")
-            .then((response) => response.json())
-            .then((data) => {
-                setMessage(data.message);
-            })
-            .catch((error) => {
-                console.error("Backend connection failed:", error);
-                setMessage("Could not connect to backend");
-            });
-    }, []);
-
     return (
-        <div>
-            <h1>AI Interview Simulation</h1>
-            <p>{message}</p>
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+            </Routes>
+        </BrowserRouter>
     );
 }
 
 export default App;
+

@@ -7,6 +7,7 @@ const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 
 const userRoutes = require("./routes/userRoutes");
+const interviewRoutes = require("./routes/interviewRoutes");
 
 const app = express();
 
@@ -18,7 +19,7 @@ app.use(express.json());
 
 app.use("/api/auth",authRoutes);
 app.use("/api/users", userRoutes);
-
+app.use("/api/interviews", interviewRoutes);
 
 
 app.get("/", (req, res) => {
